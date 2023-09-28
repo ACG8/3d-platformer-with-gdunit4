@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi51kb8vqsue7"]
+
+[ext_resource type="PackedScene" uid="uid://c5uu6hn4umldx" path="res://assets/tiles/cube.gltf" id="1_xtis1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2dme"]
+
+[node name="Platform" type="StaticBody3D"]
+
+[node name="Cube" parent="." instance=ExtResource("1_xtis1")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_x2dme")

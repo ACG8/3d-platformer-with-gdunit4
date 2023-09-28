@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://fqt7xw876gu0"]
+
+[ext_resource type="PackedScene" uid="uid://c1oiqjrnrhtxb" path="res://robot.tscn" id="2_65uka"]
+[ext_resource type="Script" path="res://Controller.gd" id="3_avyf0"]
+[ext_resource type="MeshLibrary" uid="uid://dk27yrpoy1uxe" path="res://cube.meshlib" id="3_ge0dr"]
+
+[node name="demo_room" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128713, 0.271528, -0.098712)
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh_library = ExtResource("3_ge0dr")
+data = {
+"cells": PackedInt32Array(0, 0, 0, 65535, 0, 0, 65535, 65535, 0, 0, 65535, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 65535, 0, 65534, 2, 0, 65535, 2, 0, 0, 2, 0, 1, 2, 0, 2, 1, 0, 2, 2, 0, 2, 0, 0, 2, 65535, 0, 2, 65534, 0, 1, 65534, 0, 65535, 65533, 0, 65534, 65533, 0, 65534, 65534, 0, 65535, 65534, 0, 1, 65533, 0, 0, 65533, 0, 0, 65534, 0, 2, 65533, 0, 65534, 65535, 0, 65534, 0, 0, 65534, 1, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 3, 2, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Robot" parent="." instance=ExtResource("2_65uka")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
+axis_lock_angular_y = true
+
+[node name="Camera3D" type="Camera3D" parent="Robot"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.89354, 1.18536, -1.63913e-07)
+current = true
+
+[node name="Controller" type="Node" parent="Robot"]
+script = ExtResource("3_avyf0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.849414, 0.527727, 0, -0.527727, 0.849414, 0, 0, 0)

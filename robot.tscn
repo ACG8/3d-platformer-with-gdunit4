@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1oiqjrnrhtxb"]
+
+[ext_resource type="Script" path="res://robot.gd" id="1_mm5sj"]
+[ext_resource type="PackedScene" uid="uid://c2f7a1h18wttw" path="res://assets/characters/3DGodotRobot.glb" id="1_pldbe"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p316v"]
+height = 1.8
+
+[node name="Robot" type="CharacterBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_mm5sj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_p316v")
+
+[node name="Model" parent="." instance=ExtResource("1_pldbe")]
